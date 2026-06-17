@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-navy: #003a70;
+  --color-teal: #00c5cd;
+  --color-red: #e31b23;
+  --color-white: #ffffff;
+  
+  /* Dark Glass Variables for LTTS feature cards */
+  --glass-bg: rgba(0, 58, 112, 0.9); 
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1); 
+  --glass-shadow: 
+    0 30px 60px -15px rgba(0, 58, 112, 0.2), 
+    0 10px 20px -5px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  --glass-blur: blur(30px);
+
+  /* Font */
+  --font-primary: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #fafbfc; /* Slight off-white to make the white text on navy pop even more */
+  color: var(--color-navy);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glass Card Utility */
+.glass-card {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: 24px;
+  padding: 24px;
+  color: var(--color-white); /* Text inside glass cards is white */
+}
+
+/* Base button resets */
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}

@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health)",
+      "Bash(echo \"Altair :8000 -> $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health\\)\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/health)",
+      "Bash(echo \"Node   :3000 -> $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/health\\)\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:5173)",
+      "Bash(lsof -nP -iTCP:8000 -sTCP:LISTEN -t)",
+      "Bash(xargs kill)",
+      "Bash(nohup ./venv/bin/uvicorn main:app --port 8000 --reload --log-level warning)",
+      "Bash(curl -s http://localhost:8000/health)",
+      "Bash(./venv/bin/python -c ' *)",
+      "Bash(sleep 1; tail -1 /tmp/altair.log; curl -s http://localhost:8000/health && echo \" <- altair reloaded & up\")",
+      "Read(//private/tmp/**)",
+      "Bash(node --check server.js)",
+      "Bash(lsof -nP -iTCP:3000 -sTCP:LISTEN -t)",
+      "Bash(nohup node server.js)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/upload -F \"document=@/tmp/tenders.csv;type=text/csv\" -F \"chart_count=5\" -o /tmp/prof.json -w \"HTTP %{http_code} in %{time_total}s\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(node -e \"const o=require\\('/tmp/prof.json'\\); console.log\\('needs_clarification:', o.needs_clarification, '| questions:', \\(o.clarifications||[]\\).length\\);\")",
+      "Bash(echo \"health: $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/health\\)\")",
+      "Bash(node -e \"const o=require\\('/tmp/prof.json'\\); if\\(o.error\\){console.log\\('ERR',o.error\\)}else{console.log\\('needs_clarification:', o.needs_clarification, '| questions:', \\(o.clarifications||[]\\).map\\(q=>q.id\\)\\);}\")",
+      "Bash(echo \"listening on 3000? $\\(lsof -nP -iTCP:3000 -sTCP:LISTEN -t || echo NO\\)\")",
+      "Bash(node -e \"const o=require\\('/tmp/prof.json'\\); if\\(o.error\\){console.log\\('ERR',o.error\\)}else{console.log\\('needs_clarification:', o.needs_clarification, '| questions:', \\(o.clarifications||[]\\).map\\(q=>q.id+':'+q.question\\)\\);require\\('fs'\\).writeFileSync\\('/tmp/sid.txt',o.session_id||''\\)}\")",
+      "Bash(echo \"Altair $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/health\\) | Node $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/health\\) | Vite $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:5173\\)\")",
+      "Bash(node --input-type=module -e \"import {compile} from 'vega-lite'; import {readFileSync} from 'fs'; const o=JSON.parse\\(readFileSync\\('/tmp/months.json','utf8'\\)\\); compile\\(o.filter_spec\\); compile\\(o.highlight_spec\\); console.log\\('compiles OK'\\);\")"
+    ]
+  }
+}
