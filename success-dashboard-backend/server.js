@@ -219,7 +219,7 @@ function buildPlanPrompt(statsSummary, columns, chartCount, clarificationText, p
          engine compiles your plan into interactive charts, so just describe encodings.
       7. Mark exactly ONE chart as "is_filter_source": true — it MUST encode the
          crossfilter_field (usually a bar/arc chart broken down by that field).
-      8. Also provide an overall summary and 3 strategic hypotheses for the business.
+      8. Also provide an overall summary and 8 strategic hypotheses for the business.
 
       QUALITY RULES — charts must be MEANINGFUL, never random or decorative:
       - Each chart MUST answer a specific, important question about THIS dataset and be
