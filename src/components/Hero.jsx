@@ -15,11 +15,11 @@ const GlassCard = ({ icon: Icon, title, content }) => {
         WebkitBackdropFilter: 'blur(30px)',
         border: '1px solid rgba(255, 255, 255, 0.6)',
         borderRadius: '24px',
-        padding: '40px',
+        padding: '24px',
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'flex-start', 
-        gap: '20px',
+        gap: '12px',
         boxShadow: '0 20px 40px rgba(0, 58, 112, 0.12)',
         transition: 'all 0.3s ease',
       }}
@@ -33,10 +33,10 @@ const GlassCard = ({ icon: Icon, title, content }) => {
       }}
     >
       <div style={{ color: '#e31b23' }}>
-        <Icon size={32} strokeWidth={1.5} />
+        <Icon size={28} strokeWidth={1.5} />
       </div>
       <h3 style={{ 
-        fontSize: '1.5rem', 
+        fontSize: '1.25rem', 
         fontWeight: 700, 
         color: 'var(--color-navy)',
         margin: 0
@@ -44,8 +44,8 @@ const GlassCard = ({ icon: Icon, title, content }) => {
         {title}
       </h3>
       <p style={{ 
-        fontSize: '1.05rem', 
-        lineHeight: 1.6, 
+        fontSize: '0.95rem', 
+        lineHeight: 1.5, 
         color: '#333333',
         margin: 0
       }}>
@@ -70,11 +70,11 @@ const Hero = () => {
       style={{ 
       position: 'relative',
       textAlign: 'center', 
-      padding: '120px 10%', 
+      padding: '80px 5% 40px', 
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
-      gap: '80px',
+      gap: '30px',
       minHeight: '100vh', 
       justifyContent: 'center',
       backgroundColor: 'var(--color-navy)',
@@ -111,7 +111,7 @@ const Hero = () => {
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
-          gap: '24px'
+          gap: '16px'
         }}
       >
         <motion.h1 
@@ -119,7 +119,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, type: 'spring' }}
           style={{ 
-            fontSize: '4.5rem', 
+            fontSize: '3.5rem', 
             fontWeight: 800, 
             letterSpacing: '-0.02em',
             color: 'var(--color-white)',
@@ -134,10 +134,10 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           style={{
-            fontSize: '1.5rem',
+            fontSize: '1.25rem',
             color: 'rgba(255, 255, 255, 0.8)',
             maxWidth: '700px',
-            margin: '0 0 16px 0',
+            margin: '0 0 12px 0',
             lineHeight: 1.4
           }}
         >
@@ -188,6 +188,41 @@ const Hero = () => {
         </motion.a>
       </div>
 
+      {/* Objectives Section Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        style={{
+          width: '100%',
+          textAlign: 'center',
+          marginTop: '20px',
+          marginBottom: '10px',
+          position: 'relative',
+          zIndex: 5
+        }}
+      >
+        <h2 style={{
+          fontSize: '2rem',
+          fontWeight: 800,
+          color: 'var(--color-white)',
+          letterSpacing: '-0.5px',
+          margin: 0,
+          textShadow: '0 4px 20px rgba(0,0,0,0.5)'
+        }}>
+          Objectives
+        </h2>
+        <div style={{
+          width: '60px',
+          height: '4px',
+          backgroundColor: 'var(--color-teal)',
+          margin: '16px auto 0',
+          borderRadius: '2px',
+          boxShadow: '0 0 10px var(--color-teal)'
+        }} />
+      </motion.div>
+
       {/* Mission & Vision Grid Overlay */}
       <motion.div 
         initial="hidden"
@@ -207,9 +242,9 @@ const Hero = () => {
           flexWrap: 'wrap', 
           width: '100%', 
           maxWidth: '1200px',
-          gap: '40px',
+          gap: '24px',
           justifyContent: 'center',
-          marginTop: '20px'
+          marginTop: '10px'
         }}
       >
         <motion.div
